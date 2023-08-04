@@ -1,7 +1,7 @@
 const eat_fish_together = (mode = 0) => {
   let game_start = 0;
   let time = 20.0;
-  if (getEventListeners(window).keyup) {
+  if (window.onkeyup) {
     return "游戏还在进行中哟～";
   }
   let score = 0;
@@ -14,7 +14,7 @@ const eat_fish_together = (mode = 0) => {
         clearInterval(a);
         game_start = 0;
         console.log("游戏结束！");
-        window.removeEventListener("keyup", keyboard, false);
+        window.onkeyup = null;
       } else {
         num = Math.round(num * 1000) / 1000;
         time = num.toFixed(3);
@@ -81,14 +81,14 @@ const eat_fish_together = (mode = 0) => {
           clearInterval(a);
           game_start = 0;
           console.log("游戏结束！");
-          window.removeEventListener("keyup", keyboard, false);
+          window.onkeyup = null;
           break;
         default:
           return null;
       }
     }
   }
-  window.addEventListener("keyup", keyboard);
+  window.onkeyup = keyboard;
   if (mode === 1) {
     console.log(
       `%c开始游戏！%c你可以随时按下Q键来退出游戏qwq
