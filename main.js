@@ -32,7 +32,7 @@ const eat_fish_together = () => {
     fish_pos.push(Math.floor(Math.random() * 6) + 1);
   }
   change_pos(fish_pos);
-  window.addEventListener("keyup", function (event) {
+  function keyboard (event) {
     if (event.key !== undefined && game_start === 1) {
       switch (event.key) {
         case "s":
@@ -56,11 +56,13 @@ const eat_fish_together = () => {
         case "q":
           game_start = 0;
           console.log("游戏结束！");
+          window.removeEventListener("keyup", keyboard, false); 
           break;
         default:
           return null;
       }
     }
-  });
+  }
+  window.addEventListener("keyup", keyboard);
   return "开始游戏！你可以随时按下Q键来退出游戏qwq";
 };
