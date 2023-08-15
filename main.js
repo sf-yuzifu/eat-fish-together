@@ -14,7 +14,6 @@ const eat_fish_together = (mode = 0, play = null) => {
   let score = 0;
   let a;
   let music;
-  let sound = new Audio("https://creation.codemao.cn/716/appcraft/SOUND_Z66LQAW3jU_1661068419445");
 
   let wrong_time = 10;
   if (play) {
@@ -29,7 +28,7 @@ const eat_fish_together = (mode = 0, play = null) => {
       if (times - Date.now() <= 0 || wrong_time < 1) {
         clearInterval(a);
         game_start = 0;
-        music.pause();
+        if (play) music.pause();
         console.log((wrong_time < 1 ? "由于按错次数过多，" : "") + "游戏结束！");
         window.onkeyup = null;
       } else {
@@ -42,7 +41,7 @@ const eat_fish_together = (mode = 0, play = null) => {
   let start = 0;
   const review_fish = () => {
     score++;
-    sound.play();
+    new Audio("https://creation.codemao.cn/716/appcraft/SOUND_Z66LQAW3jU_1661068419445").play();
     if (mode === 1 && time === 20 && start === 0) {
       time_down(Date.now() + 20000);
       start = 1;
@@ -106,7 +105,7 @@ const eat_fish_together = (mode = 0, play = null) => {
           clearInterval(a);
           game_start = 0;
           console.log("游戏结束！");
-          music.pause();
+          if (play) music.pause();
           window.onkeyup = null;
           break;
         default:
