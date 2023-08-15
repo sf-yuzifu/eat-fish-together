@@ -14,6 +14,7 @@ const eat_fish_together = (mode = 0, play = null) => {
   let score = 0;
   let a;
   let music;
+  let sound = new Audio("https://creation.codemao.cn/716/appcraft/SOUND_Z66LQAW3jU_1661068419445");
 
   let wrong_time = 10;
   if (play) {
@@ -41,7 +42,7 @@ const eat_fish_together = (mode = 0, play = null) => {
   let start = 0;
   const review_fish = () => {
     score++;
-    new Audio("https://creation.codemao.cn/716/appcraft/SOUND_Z66LQAW3jU_1661068419445").play();
+    sound.play();
     if (mode === 1 && time === 20 && start === 0) {
       time_down(Date.now() + 20000);
       start = 1;
