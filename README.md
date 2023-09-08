@@ -57,7 +57,7 @@ eat_fish_together(1);
 ```javascript
 eat_fish_together(mode,"[Audio URL]");
 ```
-其中[Audio URL]指你的音频直链，不是什么网易云音乐的音乐播放界面的链接！
+其中[Audio URL]指你的音频直链，不是什么网易云音乐的音乐播放界面的链接！！！
 
 ## 部分预览
 ![游戏开始界面](img/img1.png)
